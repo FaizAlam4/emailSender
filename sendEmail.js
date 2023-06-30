@@ -1,16 +1,17 @@
 const nodemailer = require('nodemailer');
 
 
-const transporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransport({  //used outlook to get smtp server info!
   host: 'smtp.gmail.com', 
   port: 465, 
   secure: true, 
-  tls: {
+  //to make nodemailer trust the self signed certificate issued by smtp server added tls:
+  tls: {   
     rejectUnauthorized: false
   },
   auth: {
     user: 'faiza232574@gmail.com', 
-    pass: 'tpweomydmnlzrswa'     //app generated password because I have enabled 2 factor authentication
+    pass: 'tpweomydmnlzrswa'     //app generated password instead of normal email password because I have enabled 2 factor authentication
   }
 });
 
@@ -20,7 +21,7 @@ function sendEmail() {
       const message = {
         from: 'faiza232574@gmail.com', 
         to: 'faizalam4e@gmail.com', 
-        subject: 'Hello from Node.js Faiz', 
+        subject: 'Hello call from Faiz', 
         text: 'This is the body of the email.' 
       };
   
